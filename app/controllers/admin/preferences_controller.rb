@@ -4,7 +4,7 @@ class Admin::PreferencesController < ApplicationController
   end
 
   def update
-    preferences = Admin::Preference.first
+    preferences = Preference.first
 
     if preferences.update(preference_params)
       redirect_to admin_preferences_path, alert: "Preferences saved."
@@ -14,6 +14,6 @@ class Admin::PreferencesController < ApplicationController
   end
 
   def preference_params
-    params.require(:admin_preference).permit(:artist_sort_order, :song_sort_order, :allow_create_artists, :allow_create_songs)
+    params.require(:preference).permit(:artist_sort_order, :song_sort_order, :allow_create_artists, :allow_create_songs)
   end
 end

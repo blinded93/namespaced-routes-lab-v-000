@@ -1,20 +1,16 @@
 <h2>Song/Artist Administration</h2>
-  <%= form_for @preferences do |f| %>
+  <%= form_for @preferences, url: admin_preference_path(@preferences) do |f| %>
     <p>
       <%= f.label :artist_sort_order %>
       <%= f.select(:artist_sort_order) do %>
-        <% [["",""],["Ascending", "asc"], ["Descending", "desc"]].each do |c| %>
-          <%= content_tag(:option, c.first, value: c.last) %>
-        <% end %>
+        <% options_for_select(["ASC", "DESC"]) %>
       <% end %>
     </p>
 
     <p>
       <%= f.label :song_sort_order %>
       <%= f.select(:song_sort_order) do %>
-        <% [["",""], ["Ascending", "asc"], ["Descending", "desc"]].each do |c| %>
-          <%= content_tag(:option, c.first, value: c.last) %>
-        <% end %>
+        <% options_for_select(["ASC", "DESC"]) %>
       <% end %>
     </p>
 
