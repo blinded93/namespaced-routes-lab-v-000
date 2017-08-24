@@ -7,7 +7,6 @@ class Admin::PreferencesController < ApplicationController
     preferences = Preference.first
 
     if preferences.update(preference_params)
-      # binding.pry
       redirect_to admin_preferences_path, alert: "Preferences saved."
     else
       render :index, alert: "Your changes were not saved."
